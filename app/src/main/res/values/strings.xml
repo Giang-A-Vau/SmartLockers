@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SmartLocker</string>
+    <string name="format_label">%d.%s</string>
+
+    <string name="text_demo">Text demo</string>
+
+    <!--    navi menu-->
+    <string name="menu_home">Trang chính</string>
+    <string name="menu_history">Nhật ký</string>
+</resources>
