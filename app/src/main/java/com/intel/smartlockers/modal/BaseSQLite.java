@@ -68,6 +68,7 @@ public class BaseSQLite extends SQLiteOpenHelper {
         ArrayList<Employee> employees = new ArrayList<Employee>();
         employees.add(new Employee(1, 1, "0610788460", "Giàng A Vầu", 1));
         employees.add(new Employee(2, 1, "0610788666", "Phạm Ngọc Hưng", 0));
+        employees.add(new Employee(3, 1, "1234567890", "Nguyễn Văn A", 1));
 
         for(int i = 0; i < employees.size(); i++){
             db.insert("Employees", null, employees.get(i).getValues());

@@ -9,4 +9,8 @@
         android:id="@+id/navi_history"
         android:icon="@drawable/ic_history_black_24dp"
         android:title="@string/menu_history" />
+    <item
+        android:id="@+id/navi_add"
+        android:icon="@drawable/ic_add_black_24dp"
+        android:title="@string/menu_add" />
 </menu>

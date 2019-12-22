@@ -7,4 +7,5 @@
     <!--    navi menu-->
     <string name="menu_home">Trang chính</string>
     <string name="menu_history">Nhật ký</string>
+    <string name="menu_add">Thêm</string>
 </resources>
