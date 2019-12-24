@@ -138,7 +138,6 @@ public class LockerAdapter extends RecyclerView.Adapter<LockerAdapter.MyViewHold
         }
     }
 
-
     @Override
     public int getItemCount() {
         return listData.size();

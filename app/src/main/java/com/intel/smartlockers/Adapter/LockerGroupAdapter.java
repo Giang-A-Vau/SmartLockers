@@ -73,7 +73,6 @@ public class LockerGroupAdapter extends RecyclerView.Adapter<LockerGroupAdapter.
 
         holder.rec_listData.setLayoutManager(new GridLayoutManager(context, 4));
 
-
         holder.rec_listData.setItemAnimator(new DefaultItemAnimator());
         holder.rec_listData.setAdapter(lockerAdapter);
     }
