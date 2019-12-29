@@ -69,6 +69,10 @@ public class BaseSQLite extends SQLiteOpenHelper {
         employees.add(new Employee(1, 1, "0610788460", "Giàng A Vầu", 1));
         employees.add(new Employee(2, 1, "0610788666", "Phạm Ngọc Hưng", 0));
         employees.add(new Employee(3, 1, "1234567890", "Nguyễn Văn A", 1));
+        employees.add(new Employee(4, 2, "0614393836", "Nguyễn Văn B", 0));
+        employees.add(new Employee(5, 2, "1111", "Nguyễn Văn C", 1));
+        employees.add(new Employee(6, 3, "1234", "Nguyễn Văn D", 0));
+        employees.add(new Employee(7, 3, "1212", "Nguyễn Văn H", 1));
 
         for(int i = 0; i < employees.size(); i++){
             db.insert("Employees", null, employees.get(i).getValues());
@@ -100,6 +104,10 @@ public class BaseSQLite extends SQLiteOpenHelper {
         lockers.add(new Lockers(20, 1, "G18", "", 0));
         lockers.add(new Lockers(21, 1, "G19", "", 0));
         lockers.add(new Lockers(22, 1, "G110", "", 0));
+        lockers.add(new Lockers(23, 1, "G111", "", 0));
+        lockers.add(new Lockers(24, 1, "G112", "", 0));
+        lockers.add(new Lockers(25, 1, "G113", "", 0));
+        lockers.add(new Lockers(26, 1, "G114", "", 0));
 
         for(int i = 0; i < lockers.size(); i++){
             db.insert("Lockers", null, lockers.get(i).getValues());

@@ -69,7 +69,8 @@ public class LockerGroupAdapter extends RecyclerView.Adapter<LockerGroupAdapter.
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         holder.rec_listData.setLayoutManager(mLayoutManager);
-        LockerAdapter lockerAdapter = new LockerAdapter(context, lockerGroups.getLockers());
+
+        LockerAdapter lockerAdapter = new LockerAdapter(context, lockerGroups.getLockers()); // context: show lên
 
         holder.rec_listData.setLayoutManager(new GridLayoutManager(context, 4));
 

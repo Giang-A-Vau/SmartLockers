@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.intel.smartlockers.fragment.fragmentAddEmployee;
 import com.intel.smartlockers.fragment.fragmentHistory;
 import com.intel.smartlockers.fragment.fragmentHome;
 import com.intel.smartlockers.modal.BaseSQLite;
@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity{
                     case R.id.navi_history:
                         changeFragment(new fragmentHistory());
                         return true;
+                    case R.id.navi_add:
+                        changeFragment(new fragmentAddEmployee());
                 }
                 return false;
             }
@@ -88,24 +90,24 @@ public class MainActivity extends AppCompatActivity{
                     Toast.makeText(this, employeeIndex.getName() + " - " + employeeIndex.getCode(), Toast.LENGTH_LONG).show();
 
                     ArrayList<History> histories = baseSQLite.getHistoryForEmployee(employeeIndex.getID());//Lấy lịch sử  truy cập hệ thống theo employee
-                    Log.w("TAG_HIS", histories.size() + "");
+                    Log.w("TAG_HIS", histories.toString() + "");
 
-                    if(histories.size() != 0) {//Có lịch sử trả về
+                    if(histories.size() != 0) {
                         Lockers lockers = baseSQLite.getLocker(histories.get(0).getLockerID());//Lấy thông tin tủ theo lịch sử gần nhất
                         if (lockers != null && lockers.getStatus() == 1) {//Có thông tin tủ trả về và trạng thái đang là có người sử dụng. Tức là employee đang sử dụng tủ này
                             openLocker(lockers);//Thực hiện mở tủ trên giao diện main
                         } else {// trạng thái của tủ trả về là trống
                             isOpenLooker = true;
-                            Toast.makeText(this, "Hãy mở 1 tủ trống bất kỳ để đựng đồ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Hãy chọn 1 tủ bất kỳ có màu xanh dương", Toast.LENGTH_SHORT).show();
                             changeFragment(new fragmentHome(baseSQLite));
                         }
                     }else {
                               isOpenLooker = true;
-                              Toast.makeText(this, "Hãy mở 1 tủ trống bất kỳ để đựng đồ", Toast.LENGTH_SHORT).show();
+                              Toast.makeText(this, "Hãy chọn 1 tủ bất kỳ có màu xanh dương", Toast.LENGTH_SHORT).show();
                               changeFragment(new fragmentHome(baseSQLite));//Làm mới lại giao diện
                     }
                 }else{//Thẻ này không có employee nào sở hữu
-                    Toast.makeText(this, "Thẻ của bạn chưa được đăng ký", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Thẻ của bạn chưa được đăng ký tủ", Toast.LENGTH_LONG).show();
                 }
 
                 codeRFID = "";
@@ -147,7 +149,7 @@ public class MainActivity extends AppCompatActivity{
                             new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault()).format(new Date()), 1));
 
                     Toast.makeText(view.getContext(), "Trả tủ thành công", Toast.LENGTH_SHORT).show();
-                    changeFragment(new fragmentHome(baseSQLite));//Làm mới giao diện
+                    changeFragment(new fragmentHome(baseSQLite));
                 }else {
                     Toast.makeText(view.getContext(), "Trả tủ thất bại", Toast.LENGTH_SHORT).show();
                 }

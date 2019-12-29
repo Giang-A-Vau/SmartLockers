@@ -48,7 +48,8 @@ public class fragmentHome extends Fragment implements View.OnClickListener{
         //Thuc hiện tìm con của LockerGroup
         for(int i = 0; i < lockerGroups.size(); i++){
             for(int j = 0; j < lockers.size(); j++){
-                if(lockers.get(j).getGroupLockerID() == lockerGroups.get(i).getID()){
+                if(lockers.get(j).getGroupLockerID() == lockerGroups.get(i).getID())
+                {
                     lockerGroups.get(i).getLockers().add(lockers.get(j));
                 }
             }
